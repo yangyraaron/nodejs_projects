@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sign up</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/css/app.css" rel="stylesheet"></head>
+<body>
+	<% include templates/header.html %>
+	<% include templates/error.html %>
+
+	<div class="container layout-content">
+		<div class="row">
+			<div class="span6 offset3">
+				<form class="form-horizontal" action="/users" method="post">
+					<div class="control-group">
+						<label class="control-label" for="inputEmail">Email</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="inputEmail" 
+							name="user[email]" placeholder="Email"></div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputName">Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="inputName" 
+							name="user[name]" placeholder="Name"></div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputPassword">Password</label>
+						<div class="controls">
+							<input type="password" class="input-xlarge" id="inputPassword" 
+							name="user[password]" placeholder="Password"></div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputConfirm">Password confirm</label>
+						<div class="controls">
+							<input type="password" class="input-xlarge" id="inputConfirm" placeholder="password confirm"></div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn btn-primary" type="submit">Create my account</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src='js/jquery-1.9.0.js'></script>
+	<script type="text/javascript" src='js/bootstrap.js'></script>
+</body>
+</html>

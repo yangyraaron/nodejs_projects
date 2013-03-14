@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Users</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/css/app.css" rel="stylesheet"></head>
+<body>
+	<% include ../templates/header.html %>
+
+	<div class="container layout-content">
+		<h1 class="center">Users</h1>
+		<%var curEmail = header.user && header.user.email;%>
+		<%for(var i=0;i<body.users.length;i++){%>
+		<%var user = undefined,method=undefined,str='';%>
+		<%if(!curEmail) {%>
+		<%user={email:body.users[i]};}else{%>
+		<%user = body.users[i];}%>
+		<%if(!user.isFollowing){%>
+		<%method='post';str='following'}else{%>
+		<%method='delete';str='unfollow'}%>
+		<%if(user.email!=curEmail){%>
+		<form action="/follow?email=<%=user.email%>
+			" method="post">
+			<%if(method=='delete'){%>
+			<input type="hidden" name="_method" value="delete" />
+			<%}%>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object" src="img/gravatar.png" style="width:80px;height:80px;"></a>
+				<div class="media-body">
+					<h4 class="media-heading">
+						<%=user.email%></h4>
+					<legend></legend>
+					<%if(curEmail){%>
+					<button class="btn btn-primary" type="submit">
+						<%=str%></button>
+					<%}%></div>
+			</div>
+		</form>
+		<%}%>
+		<%}%></div>
+
+	<script type="text/javascript" src='js/jquery-1.9.0.js'></script>
+	<script type="text/javascript" src='js/bootstrap.js'></script>
+</body>
+</html>

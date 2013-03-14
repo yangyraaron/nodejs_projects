@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/app.css" rel="stylesheet">
+<body>
+	<% include templates/header.html %>
+	<div class="container layout-content">
+		<% if(header.user){%>
+		<div class="row">
+
+			<div class="span4">
+				<ul class="thumbnails">
+					<li >
+						<div class="span3">
+							<div class="thumbnail">
+								<img src="img/gravatar.png" alt=""></div>
+							<h2 >
+								<%=header.user.name%></h2>
+							<hr>
+							<address>
+								<ul class="unstyled">
+									<li> <i class="icon-envelope" ></i>
+										<a href="mailto:<%=header.user.email%>
+											" class="right-indent">
+											<%=header.user.email%></a>
+									</li>
+									<li> <i class="icon-time right-indent"></i>
+										<span class="muted right-indent">Joined on</span>
+										<%=header.user.createTime%></li>
+								</ul>
+
+							</address>
+							<hr>
+							<ul class="inline">
+								<li class="stat-item">
+									<a href="#" >
+										<h2>
+											<%=header.user.followers%></h2>
+										followers
+									</a>
+								</li>
+								<li class="stat-item">
+									<a href="#" >
+										<h2>
+											<%=header.user.following%></h2>
+										following
+									</a>
+								</li>
+							</ul>
+							<hr></div>
+
+					</li>
+				</ul>
+
+			</div>
+			<div class="span8">
+				<ul class="unstyled">
+					<li>
+						<form action="/post" method="post">
+							<div class="control-group">
+								<div class="controls">
+									<ul class="unstyled">
+										<li>
+											<textarea id="inputContent" name="post[content]" class="span5" rows="5"></textarea>
+										</li>
+										<li>
+											<button type="submit" class="btn btn-primary">send</button>
+										</li>
+									</ul>
+
+								</div>
+
+							</div>
+						</form>
+					</li>
+					<li></li>
+				</ul>
+				<hr>
+				<ul class="unstyled">
+					<%for(var j=0;j<body.posts.length;j++){%>
+					<% var post=body.posts[j];%>
+					<li>
+						<div class="media" style="margin:5px;">
+								<a class="pull-left" href="#">
+									<img class="media-object" src="img/gravatar.png" style="width:80px;height:80px;"></a>
+							<div><h5 class="text-warning"><%=post.creator%></h5>
+								<p><%=post.content%></p>
+								<p class="muted"><%=post.createTime%></p>
+							</div>
+						</div>
+						</li>
+					<%}%></ul>
+
+			</div>
+		</div>
+		<%}else{%>
+		<div class="hero-unit">
+			<h1>Hello!</h1>
+			<p>
+				Welcome to the micropost application,if you don't register an accout please sign up,or you already have one ,please sign up and have fun!
+			</p>
+			<a href="signup" class="btn btn-success btn-large">Sign up</a>
+		</div>
+		<%}%></div>
+	<script type="text/javascript" src='js/jquery-1.9.0.js'></script>
+	<script type="text/javascript" src='js/bootstrap.js'></script>
+</body>
+</body>
+</head>
+</html>

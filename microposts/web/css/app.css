@@ -1,0 +1,17 @@
+body{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.center{
+	text-align: center;
+}
+.layout-content{
+	padding-top: 20px;
+}
+
+.right-indent{
+	margin-right: 5px;
+}
+.stat-item{
+	min-width: 100px;
+}

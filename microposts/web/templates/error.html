@@ -1,0 +1,7 @@
+  <% if (errors.length) {%>
+  <div class="alert alert-error center">
+    <% for(var i=0;i<errors.length;i++) {%>
+    <span>
+      <%= errors[i] %></span>
+    <%}%></div>
+  <%}%>
